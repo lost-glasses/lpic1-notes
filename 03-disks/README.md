@@ -69,10 +69,19 @@ This section covers how to view, partition, format, mount, and maintain disks an
 
 The `/etc/fstab` (File System Table) file is used to define permanent mounts that happen automatically at boot.
 
-Each line in the file has **6 fields**:
-<UUID> <Mount Point> <FS Type> <Options> <Dump> <Pass>
+Each line in the file has **6 fields**: <UUID> <Mount Point> <FS Type> <Options> <Dump> <Pass>
 
 **Example Line:**
+
+UUID=4e560f17-6965-46bf-8ac6-fbf1da5b6056   /mnt/p1   ext4   defaults   0   2
+│                                           │         │      │          │   │
+│                                           │         │      │          │   └── Pass (fsck order)
+│                                           │         │      │          └────── Dump (backup flag)
+│                                           │         │      └───────────────── Options
+│                                           │         └──────────────────────── FS Type
+│                                           └────────────────────────────────── Mount Point
+└──────────────────────────────────────────────────────────────────────────── UUID
+
 
 **Breakdown of Each Field:**
 
@@ -115,7 +124,6 @@ Each line in the file has **6 fields**:
 
 **Summary of the Example Line:**
 > The partition with UUID `4e560f17-...` will be mounted at `/mnt/p1` as `ext4` with `defaults` options. It will **not** be backed up by `dump` (0), and `fsck` will check it **after** the root filesystem (2).
-
 
 
 ## 🔍 5. Checking & Repairing Filesystems
