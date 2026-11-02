@@ -67,11 +67,11 @@ This section covers how to view, partition, format, mount, and maintain disks an
 
 **The `/etc/fstab` file:**
 Used to define permanent mounts at boot. Each line has 6 fields:
-```
+
 Example:
-```
+
 UUID=4e560f17-6965-46bf-8ac6-fbf1da5b6056 /mnt/p1 ext4 defaults 0 2
-```
+
 - **`<Dump>`**: `0` (no backup) or `1` (backup with `dump`).
 - **`<Pass>`**: `0` (no fsck), `1` (first, for root), `2` (others).
 
