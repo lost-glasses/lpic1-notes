@@ -52,7 +52,8 @@ This section covers how to view, configure, and troubleshoot network interfaces,
 <IP Address> <Hostname> [Aliases...]
 ```
 **Example:**
-```142.250.72.14 google.com
+```text
+142.250.72.14 google.com
 ```
 
 
