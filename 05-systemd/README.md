@@ -126,23 +126,24 @@ In systemd, **Runlevels** are replaced by **Targets**.
 ## 🔐 9. Creating a Custom Service
 
 **Step 1: Create a script:**
-
+```bash
 #!/bin/bash
 while true; do
     echo "Custom service is running at $(date)" >> /tmp/custom_service.log
     sleep 10
 done
-
+```bash
 Save it as /usr/local/bin/custom_service.sh and make it executable:
-
+```text
 chmod +x /usr/local/bin/custom_service.sh
-
+```
 **Step 2: Create a unit file:**
-
+```bash
 sudo nano /etc/systemd/system/custom.service
+```
 
 **Step 3: Add the following:**
-
+```ini
 [Unit]
 Description=My Custom Service
 After=network.target
@@ -154,14 +155,15 @@ Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
+```
 
 **Step 4: Enable and start:**
-
+```bash
 sudo systemctl daemon-reload
 sudo systemctl enable custom.service
 sudo systemctl start custom.service
 systemctl status custom.service
-
+```
 ## 📊 10. Comparison: SysV vs systemd
 
 | Feature | SysV init (old) | systemd (modern) |
