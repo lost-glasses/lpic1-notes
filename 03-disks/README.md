@@ -69,8 +69,9 @@ This section covers how to view, partition, format, mount, and maintain disks an
 
 The `/etc/fstab` (File System Table) file is used to define permanent mounts that happen automatically at boot.
 
-Each line in the file has **6 fields**: <UUID> <Mount Point> <FS Type> <Options> <Dump> <Pass>
-
+Each line in the file has **6 fields**:
+``` <UUID> <Mount Point> <FS Type> <Options> <Dump> <Pass>
+```
 **Example Line:**
 ```text 
 UUID=4e560f17-6965-46bf-8ac6-fbf1da5b6056   /mnt/p1   ext4   defaults   0   2
