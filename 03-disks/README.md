@@ -72,14 +72,14 @@ The `/etc/fstab` (File System Table) file is used to define permanent mounts tha
 Each line in the file has **6 fields**: <UUID> <Mount Point> <FS Type> <Options> <Dump> <Pass>
 
 **Example Line:**
-
-UUID=4e560f17-6965-46bf-8ac6-fbf1da5b6056 /mnt/p1 ext4 defaults 0 2
-│ │ │ │ │ │
-│ │ │ │ │ └── Pass (fsck order)
-│ │ │ │ └────── Dump (backup flag)
-│ │ │ └───────────────── Options
-│ │ └──────────────────────── FS Type
-│ └────────────────────────────────── Mount Point
+```` ```text ````
+UUID=4e560f17-6965-46bf-8ac6-fbf1da5b6056   /mnt/p1   ext4   defaults   0   2
+│                                           │         │      │          │   │
+│                                           │         │      │          │   └── Pass (fsck order)
+│                                           │         │      │          └────── Dump (backup flag)
+│                                           │         │      └───────────────── Options
+│                                           │         └──────────────────────── FS Type
+│                                           └────────────────────────────────── Mount Point
 └──────────────────────────────────────────────────────────────────────────── UUID
 
 **Breakdown of Each Field:**
