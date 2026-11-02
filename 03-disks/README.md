@@ -65,15 +65,58 @@ This section covers how to view, partition, format, mount, and maintain disks an
 | `mount -a` | Mount all filesystems listed in `/etc/fstab` | `sudo mount -a` |
 | `mount -o ro /dev/sdb1 /mnt` | Mount as **read-only** | `sudo mount -o ro /dev/sdb1 /mnt` |
 
-**The `/etc/fstab` file:**
-Used to define permanent mounts at boot. Each line has 6 fields:
+### 📝 The `/etc/fstab` File (Explained in Detail)
 
-Example:
+The `/etc/fstab` (File System Table) file is used to define permanent mounts that happen automatically at boot.
 
-UUID=4e560f17-6965-46bf-8ac6-fbf1da5b6056 /mnt/p1 ext4 defaults 0 2
+Each line in the file has **6 fields**:
+<UUID> <Mount Point> <FS Type> <Options> <Dump> <Pass>
 
-- **`<Dump>`**: `0` (no backup) or `1` (backup with `dump`).
-- **`<Pass>`**: `0` (no fsck), `1` (first, for root), `2` (others).
+**Example Line:**
+
+**Breakdown of Each Field:**
+
+1.  **`<UUID>` (Field 1)**
+    *   The unique identifier of the partition.
+    *   **Why UUID instead of `/dev/sdb1`?** Because `/dev/sdb1` can change if you add/remove disks, but the UUID is permanent.
+    *   *Example:* `UUID=4e560f17-6965-46bf-8ac6-fbf1da5b6056`
+
+2.  **`<Mount Point>` (Field 2)**
+    *   The directory where the filesystem will be attached.
+    *   *Example:* `/mnt/p1`
+
+3.  **`<FS Type>` (Field 3)**
+    *   The filesystem type (e.g., `ext4`, `xfs`, `vfat`, `swap`).
+    *   *Example:* `ext4`
+
+4.  **`<Options>` (Field 4)**
+    *   Mount options. The most common is `defaults`, which means:
+        *   `rw` (read-write)
+        *   `suid` (allow set-user-ID)
+        *   `dev` (interpret character/block devices)
+        *   `exec` (allow execution of binaries)
+        *   `auto` (mount at boot)
+        *   `nouser` (only root can mount)
+        *   `async` (asynchronous I/O)
+    *   *Example:* `defaults`
+
+5.  **`<Dump>` (Field 5)**
+    *   Used by the `dump` utility (an old backup tool).
+    *   **`0`**: Do **not** backup this filesystem (default and most common).
+    *   **`1`**: Backup this filesystem with `dump`.
+    *   *Note:* Today, `dump` is rarely used, so this is almost always `0`.
+
+6.  **`<Pass>` (Field 6)**
+    *   Determines the order in which `fsck` checks the filesystems at boot.
+    *   **`0`**: Do **not** check this filesystem (e.g., `swap`, `tmpfs`, `proc`).
+    *   **`1`**: Check **first** (only for the root filesystem `/`).
+    *   **`2`**: Check **after** the root filesystem (for all other data partitions).
+    *   *Example:* `2`
+
+**Summary of the Example Line:**
+> The partition with UUID `4e560f17-...` will be mounted at `/mnt/p1` as `ext4` with `defaults` options. It will **not** be backed up by `dump` (0), and `fsck` will check it **after** the root filesystem (2).
+
+
 
 ## 🔍 5. Checking & Repairing Filesystems
 
