@@ -117,3 +117,4 @@ This document covers all the essential commands and concepts I've learned for na
 | `--help` | Quick **help** for most commands |
 
 ---
+ [EXERCISES](https://github.com/lost-glasses/lpic1-notes/blob/main/01-basics/EXERCISES.md)
