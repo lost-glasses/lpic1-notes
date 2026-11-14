@@ -9,13 +9,13 @@ This repository is my personal knowledge base and notebook while studying for th
 ## Structure
 
 - `01-basics/` — Linux fundamentals, file management, links, redirection
-- `02-text-processing/` — grep, sed, awk, cut, sort, wc
-- `03-disk-fs/` — fdisk, parted, LVM, fsck, mount, swap
+- `02-text/` — grep, sed, awk, cut, sort, wc
+- `03-disks/` — fdisk, parted, LVM, fsck, mount, swap
 - `04-network/` — IP, DNS, routing, SSH, NTP
 - `05-systemd/` — systemctl, journalctl, services, runlevels
-- `06-time-log/` — chrony, hwclock, rsyslog, locale
+- `06-time/` — chrony, hwclock, rsyslog, locale
 - `07-mail/` — postfix, mail, queue management
-- `08-advanced/` — Bash scripting, GPG, sudoers, cron, VNC, X11
+- `08-advanced-linux/` — Bash scripting, GPG, sudoers, cron, VNC, X11
 
 ## Format
 
