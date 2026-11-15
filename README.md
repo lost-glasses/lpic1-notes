@@ -26,4 +26,4 @@ Each section contains two files:
 ## Status
 
 Currently learning and documenting everything
-and yes, I'm using AI. I study, take notes, work through exercises and ask my questions, all by using it, then convert everything into structured notes :)
+And yes, I use AI as part of my learning process. I study topics, work through exercises, and ask questions with the help of AI. Once I'm done, I use it to compile what I've learned into structured notes :)
