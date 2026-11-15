@@ -25,4 +25,5 @@ Each section contains two files:
 
 ## Status
 
-Currently learning and documenting everything. 
+Currently learning and documenting everything
+and yes, I'm using AI. I study, take notes, work through exercises and ask my questions, all by using it, then convert everything into structured notes :)
