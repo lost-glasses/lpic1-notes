@@ -124,8 +124,76 @@ Displays characters 1 through 5 from each line.
 **Note:** `cut -d' '` uses a single space as the delimiter. It does not automatically handle multiple spaces as one separator. For variable whitespace, `awk` is often more suitable.
 
 ---
+## 4. tr — Translating & Deleting Characters
 
-## 4. wc, sort & uniq — Counting and Sorting
+`tr` translates, replaces, or deletes individual characters from standard input (stdin).
+
+Unlike `cut`, which extracts fields or character positions, `tr` works with individual characters.
+
+### Common Options
+
+| Option | Description |
+|---|---|
+| `-d` | Delete specified characters |
+| `-s` | Replace repeated occurrences of a character with a single occurrence |
+
+### Examples
+
+**Convert lowercase letters to uppercase:**
+
+```bash
+echo "hello linux" | tr 'a-z' 'A-Z'
+```
+
+Output:
+
+```text
+HELLO LINUX
+```
+
+**Delete all digits:**
+
+```bash
+echo "Linux123" | tr -d '0-9'
+```
+
+Output:
+
+```text
+Linux
+```
+
+**Replace spaces with underscores:**
+
+```bash
+echo "hello linux world" | tr ' ' '_'
+```
+
+Output:
+
+```text
+hello_linux_world
+```
+
+**Squeeze repeated spaces into a single space:**
+
+```bash
+echo "hello    linux" | tr -s ' '
+```
+
+Output:
+
+```text
+hello linux
+```
+
+**Important:** `tr` reads from standard input, so it is commonly used with pipes or input redirection.
+
+```bash
+tr 'a-z' 'A-Z' < file.txt
+```
+---
+## 5. wc, sort & uniq — Counting and Sorting
 
 These tools are frequently used together when analyzing text and command output.
 
@@ -182,7 +250,7 @@ sort file.txt | uniq -c
 
 ---
 
-## 5. Regular Expressions: BRE
+## 6. Regular Expressions: BRE
 
 Basic Regular Expressions (BRE) are used by tools such as `grep` by default.
 
@@ -207,7 +275,7 @@ grep "[0-9]" file.txt
 
 ---
 
-## 6. Extended Regular Expressions: ERE
+## 7. Extended Regular Expressions: ERE
 
 Extended Regular Expressions provide additional operators without requiring the backslash escaping used by traditional BRE syntax.
 
@@ -242,7 +310,7 @@ grep -E "[0-9]{3}" file.txt
 
 ---
 
-## 7. Practical One-Liners
+## 8. Practical One-Liners
 
 A few useful combinations of text-processing commands:
 
